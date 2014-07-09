@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="//cdn.staticfile.org/require.js/2.1.14/require.min.js"></script>
+  </head>
+  <body>
+    <div id="package">
+      <a ng-href="#/foo">foo</a>
+      <div ng-view></div>
+    </div>
+    <script>
+      require.config({
+        paths: {
+          jQuery: '//cdn.staticfile.org/jquery/1.11.1/jquery.min',
+          angular: '//cdn.staticfile.org/angular.js/1.2.18/angular.min',
+          angularRoute: '//cdn.staticfile.org/angular.js/1.2.18/angular-route.min',
+        },
+        packages: [
+        {
+          name: 'package',
+          location: './package',
+        }],
+        shim: {
+          'angular': {
+            deps: ['jQuery'],
+            exports: 'angular',
+          },
+          'angularRoute': ['angular'],
+        },
+      });
+
+      require(['angular', 'package'], function(angular) {
+        angular.element(document).ready(function() {
+          angular.bootstrap(angular.element('#package')[0], ['package']);
+        });
+      });
+    </script>
+  </body>
+</html>
