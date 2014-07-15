@@ -2,6 +2,9 @@
 
 使用 [RequireJS](http://requirejs.cn/) 进行依赖管理。
 
+- [AngularJS 入门教程](http://angularjs.cn/T006)
+- [AngularJS 开发指南](http://angularjs.cn/T008)
+
 ## 目录结构
 
 - **组件包名称**
